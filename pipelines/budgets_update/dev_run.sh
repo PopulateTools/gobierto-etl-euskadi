@@ -34,3 +34,4 @@ cd $EUSKADI_ETL; ruby operations/gobierto-budgets/transform-px-data/run.rb $STOR
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/transform-px-data/run.rb $STORAGE_DIR/PX_153011_cepsp_pspmun05_utf8.px $STORAGE_DIR/PX_153011_cepsp_pspmun05.json
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/transform-px-data/run.rb $STORAGE_DIR/PX_153011_cepsp_psppre01_utf8.px $STORAGE_DIR/PX_153011_cepsp_psppre01.json
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/transform-px-data/run.rb $STORAGE_DIR/PX_153011_cepsp_psppre02_utf8.px $STORAGE_DIR/PX_153011_cepsp_psppre02.json
+cd $EUSKADI_ETL; ruby operations/gobierto-budgets/transform-px-data/run.rb $STORAGE_DIR/PX_153011_cepsp_pspmun06_utf8.px $STORAGE_DIR/PX_153011_cepsp_pspmun06.json

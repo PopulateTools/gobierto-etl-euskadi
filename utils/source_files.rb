@@ -2,6 +2,7 @@
 
 require_relative "./budget_location_data"
 require_relative "./budget_code_data"
+require_relative "./budget_data_report"
 
 class SourceFiles
   FILES = {

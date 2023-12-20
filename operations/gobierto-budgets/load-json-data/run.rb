@@ -5,7 +5,6 @@ Bundler.require
 
 require_relative "../../../utils/source_files.rb"
 require "json"
-require "byebug"
 
 # Usage:
 #

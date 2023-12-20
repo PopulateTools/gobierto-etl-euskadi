@@ -37,8 +37,7 @@ puts "  - Importing \"#{file_metadata[:title]}\" for index=#{index} kind=#{file_
 grouped_data = parsed_source_data.group_by { |item| item["year"].to_i }.reject { |k, _v| k < 2010 }
 
 grouped_data.each do |year, data|
-  # nitems = GobiertoBudgetsData::GobiertoBudgets::BudgetLinesImporter.new(index:, year:, data:).import!
-  nitems = data.count
+  nitems = GobiertoBudgetsData::GobiertoBudgets::BudgetLinesImporter.new(index:, year:, data:).import!
   puts "  ---- Imported #{nitems} items for year=#{year}"
 end
 

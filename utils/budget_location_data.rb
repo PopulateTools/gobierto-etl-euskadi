@@ -40,4 +40,10 @@ class BudgetLocationData
   def population
     GobiertoBudgetsData::GobiertoBudgets::Population.get(location.id, year.to_i)
   end
+
+  def self.location_ids
+    INE::Places::PlacesCollection.records.select do |loc|
+      loc.province.autonomous_region.id == AUTONOMOUS_REGION_ID
+    end.map(&:id)
+  end
 end

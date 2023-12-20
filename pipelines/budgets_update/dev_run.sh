@@ -3,17 +3,10 @@
 RAILS_ENV="development"
 GOBIERTO_ETL_UTILS=$DEV_DIR/gobierto-etl-utils
 EUSKADI_ETL=$DEV_DIR/gobierto-etl-euskadi
-ELASTICSEARCH_URL="http://localhost:9200"
-BUDGETS_EUSKADI=$DEV_DIR/gobierto-budgets-comparator-gen-cat
 STORAGE_DIR=$EUSKADI_ETL/tmp
-FAST_RUN=false
-BUCKET_NAME="gobierto-budgets-comparator-dev"
 
-# # Extract > Download last start query date
-# s3cmd get s3://$BUCKET_NAME/euskadi/last_excecution_date.txt $STORAGE_DIR/last_excecution_date.txt --force
-
-# # Extract > Clean previous downloads
-# cd $DEV_DIR/gobierto-etl-gencat/; ruby operations/gobierto_people/clear-path/run.rb downloads/datasets
+# Extract > Clear storage dir
+rm -rf $STORAGE_DIR/*
 
 # Extract > Download data
 cd $GOBIERTO_ETL_UTILS; ruby operations/api-download/run.rb --source-url https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_pspmun04.px --output-file $STORAGE_DIR/PX_153011_cepsp_pspmun04.px
@@ -42,3 +35,7 @@ cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE_DIR/PX_153011_cepsp_psppre01.json
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE_DIR/PX_153011_cepsp_psppre02.json
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE_DIR/PX_153011_cepsp_pspmun06.json
+
+# Load > Re-calculate bubbles
+cd $EUSKADI_ETL; ruby operations/gobierto-budgets/generate-location-ids/run.rb $STORAGE_DIR/location_ids.txt
+cd $GOBIERTO_ETL_UTILS; ruby operations/gobierto_budgets/bubbles/run.rb $STORAGE_DIR/location_ids.txt

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 LOCATION_NAMES_CORRECTIONS = {
-  "Arrankudiaga" => "Arrankudiaga-Zollo",
+  "Arrankudiaga-Zollo" => "Arrankudiaga",
   "Agurain/Salvatierra" => "Salvatierra/Agurain",
   "Donostia / San Sebastián" => "Donostia/San Sebastián",
   "Ribera Baja/Erriberabeitia" => "Ribera Baja/Erribera Beitia"

@@ -87,11 +87,21 @@ class BudgetCodeData
     return if clean_code_name.blank?
 
     categories = GobiertoBudgetsData::GobiertoBudgets::Category.all(area_name: category_area_name, kind:, locale:)
-
     category = categories.find { |code, value| code.length == @level && value.downcase == clean_code_name }
     return if category.blank?
 
     @code = category[0]
     @parent_code = @level < 2 ? nil : @code[0..@level - 2]
+  end
+
+  def self.code_data(code_string)
+    level = code_string.length
+    parent_code = level < 2 ? nil : code_string[0..level - 2]
+
+    {
+      code: code_string,
+      level:,
+      parent_code:
+    }
   end
 end

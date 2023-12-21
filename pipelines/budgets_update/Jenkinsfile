@@ -42,6 +42,11 @@ pipeline {
                 sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/transform-px-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun06_utf8.px ${STORAGE_DIR}/PX_153011_cepsp_pspmun06.json"
             }
         }
+        stage('Transform > Aggregate functional and economic data') {
+            steps {
+                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/aggregate-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun06.json ${STORAGE_DIR}/PX_153011_cepsp_pspmun06_aggregated.json"
+            }
+        }
         stage('Load > Import data') {
             steps {
                 sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun04.json"

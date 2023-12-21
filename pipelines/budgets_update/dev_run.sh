@@ -29,7 +29,10 @@ cd $EUSKADI_ETL; ruby operations/gobierto-budgets/transform-px-data/run.rb $STOR
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/transform-px-data/run.rb $STORAGE_DIR/PX_153011_cepsp_psppre02_utf8.px $STORAGE_DIR/PX_153011_cepsp_psppre02.json
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/transform-px-data/run.rb $STORAGE_DIR/PX_153011_cepsp_pspmun06_utf8.px $STORAGE_DIR/PX_153011_cepsp_pspmun06.json
 
-# Load > Import data
+# Transform > Aggregate functional and economic data
+cd $EUSKADI_ETL; ruby operations/gobierto-budgets/aggregate-data/run.rb $STORAGE_DIR/PX_153011_cepsp_pspmun06.json $STORAGE_DIR/PX_153011_cepsp_pspmun06_aggregated.json
+
+# # Load > Import data
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE_DIR/PX_153011_cepsp_pspmun04.json
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE_DIR/PX_153011_cepsp_pspmun05.json
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE_DIR/PX_153011_cepsp_psppre01.json

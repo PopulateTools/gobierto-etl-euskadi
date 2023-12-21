@@ -47,6 +47,18 @@ class SourceFiles
       functional_component: true,
       category_economic_dimension: { "es" => "clasificación económica", "eu" => "sailkapen ekonomikoa", "en" => "economic classification" },
       category_functional_dimension: { "es" => "clasificación funcional", "eu" => "sailkapen funtzionala", "en" => "functional classification" }
+    },
+    "PX_153011_cepsp_pspmun06_aggregated_economic" => {
+      title: "Gastos de ayuntamientos de la C.A. de Euskadi por ámbitos territoriales, clasificación económica agregada. 2017 - 2021",
+      index: GobiertoBudgetsData::GobiertoBudgets::ES_INDEX_FORECAST,
+      kind: GobiertoBudgetsData::GobiertoBudgets::EXPENSE,
+      area_name: GobiertoBudgetsData::GobiertoBudgets::ECONOMIC_AREA_NAME
+    },
+    "PX_153011_cepsp_pspmun06_aggregated_functional" => {
+      title: "Gastos de ayuntamientos de la C.A. de Euskadi por ámbitos territoriales, clasificación funcional agregada. 2017 - 2021",
+      index: GobiertoBudgetsData::GobiertoBudgets::ES_INDEX_FORECAST,
+      kind: GobiertoBudgetsData::GobiertoBudgets::EXPENSE,
+      area_name: GobiertoBudgetsData::GobiertoBudgets::FUNCTIONAL_AREA_NAME
     }
   }
 end

@@ -38,6 +38,8 @@ cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE_DIR/PX_153011_cepsp_psppre01.json
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE_DIR/PX_153011_cepsp_psppre02.json
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE_DIR/PX_153011_cepsp_pspmun06.json
+cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE_DIR/PX_153011_cepsp_pspmun06_aggregated_economic.json
+cd $EUSKADI_ETL; ruby operations/gobierto-budgets/load-json-data/run.rb $STORAGE_DIR/PX_153011_cepsp_pspmun06_aggregated_functional.json
 
 # Load > Re-calculate bubbles
 cd $EUSKADI_ETL; ruby operations/gobierto-budgets/generate-location-ids/run.rb $STORAGE_DIR/location_ids.txt

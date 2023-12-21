@@ -41,7 +41,7 @@ class SourceFiles
     "PX_153011_cepsp_pspmun06" => {
       url: "https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_pspmun06.px",
       title: "Gastos de ayuntamientos de la C.A. de Euskadi por ámbitos territoriales, clasificación funcional y clasificación económica. 2017 - 2021",
-      index: GobiertoBudgetsData::GobiertoBudgets::ES_INDEX_FORECAST,
+      index: GobiertoBudgetsData::GobiertoBudgets::ES_INDEX_EXECUTED,
       kind: GobiertoBudgetsData::GobiertoBudgets::EXPENSE,
       area_name: GobiertoBudgetsData::GobiertoBudgets::ECONOMIC_FUNCTIONAL_AREA_NAME,
       functional_component: true,
@@ -50,13 +50,13 @@ class SourceFiles
     },
     "PX_153011_cepsp_pspmun06_aggregated_economic" => {
       title: "Gastos de ayuntamientos de la C.A. de Euskadi por ámbitos territoriales, clasificación económica agregada. 2017 - 2021",
-      index: GobiertoBudgetsData::GobiertoBudgets::ES_INDEX_FORECAST,
+      index: GobiertoBudgetsData::GobiertoBudgets::ES_INDEX_EXECUTED,
       kind: GobiertoBudgetsData::GobiertoBudgets::EXPENSE,
       area_name: GobiertoBudgetsData::GobiertoBudgets::ECONOMIC_AREA_NAME
     },
     "PX_153011_cepsp_pspmun06_aggregated_functional" => {
       title: "Gastos de ayuntamientos de la C.A. de Euskadi por ámbitos territoriales, clasificación funcional agregada. 2017 - 2021",
-      index: GobiertoBudgetsData::GobiertoBudgets::ES_INDEX_FORECAST,
+      index: GobiertoBudgetsData::GobiertoBudgets::ES_INDEX_EXECUTED,
       kind: GobiertoBudgetsData::GobiertoBudgets::EXPENSE,
       area_name: GobiertoBudgetsData::GobiertoBudgets::FUNCTIONAL_AREA_NAME
     }

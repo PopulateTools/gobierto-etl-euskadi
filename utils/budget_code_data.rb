@@ -32,13 +32,6 @@ class BudgetCodeData
     get_code
   end
 
-  def functional_data
-    return {} if true
-
-    { functional_code: :test }
-  end
-
-  # functional_code optional
   def data
     {
       code:,

@@ -58,26 +58,6 @@ pipeline {
             }
         }
     }
-    stages {
-        stage('Extract > Download last start query date') {
-        }
-        stage('Extract > Generate last start query date') {
-        }
-        stage("Extract/Load > Update budgets forecast") {
-        }
-        stage("Extract/Load > Update budgets execution") {
-        }
-        stage("Extract > Generate year arguments for updating total budgets") {
-        }
-        stage("Transform/Load > Update total budgets for forecast data") {
-        }
-        stage("Transform/Load > Update total budgets for execution data") {
-        }
-        stage("Load > Re-calculate bubbles") {
-        }
-        stage('Documentation > Upload last execution date') {
-        }
-    }
     post {
         failure {
             echo "This will run only if failed"

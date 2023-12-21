@@ -54,9 +54,17 @@ class BudgetCodeData
       @level = 1
       @clean_code_name = code_name.gsub(/^--/, "").downcase
     when GobiertoBudgetsData::GobiertoBudgets::ECONOMIC_FUNCTIONAL_AREA_NAME
-      return unless /^-/.match?(code_name)
+      if functional
+        return if code_name == "TOTAL"
+      else
+        return unless /^-/.match?(code_name)
+      end
 
-      @level = functional ? 2 : 1
+      @level = if functional
+                 /^-/.match?(code_name) ? 2 : 1
+               else
+                 1
+               end
       @clean_code_name = code_name.gsub(/^-/, "").gsub(/\.$/, "").downcase
     end
   end

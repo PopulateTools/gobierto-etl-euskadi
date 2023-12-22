@@ -17,11 +17,11 @@ pipeline {
         }
         stage('Extract > Download data') {
             steps {
-                sh "cd ${GOBIERTO_ETL_UTILS}; ruby operations/api-download/run.rb --source-url 'https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_pspmun04.px' --output-file ${STORAGE_DIR}/PX_153011_cepsp_pspmun04.px
-                sh "cd ${GOBIERTO_ETL_UTILS}; ruby operations/api-download/run.rb --source-url 'https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_pspmun05.px' --output-file ${STORAGE_DIR}/PX_153011_cepsp_pspmun05.px
-                sh "cd ${GOBIERTO_ETL_UTILS}; ruby operations/api-download/run.rb --source-url 'https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_psppre01.px' --output-file ${STORAGE_DIR}/PX_153011_cepsp_psppre01.px
-                sh "cd ${GOBIERTO_ETL_UTILS}; ruby operations/api-download/run.rb --source-url 'https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_psppre02.px' --output-file ${STORAGE_DIR}/PX_153011_cepsp_psppre02.px
-                sh "cd ${GOBIERTO_ETL_UTILS}; ruby operations/api-download/run.rb --source-url 'https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_pspmun06.px' --output-file ${STORAGE_DIR}/PX_153011_cepsp_pspmun06.px
+                sh "cd ${GOBIERTO_ETL_UTILS}; ruby operations/api-download/run.rb --source-url 'https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_pspmun04.px' --output-file ${STORAGE_DIR}/PX_153011_cepsp_pspmun04.px"
+                sh "cd ${GOBIERTO_ETL_UTILS}; ruby operations/api-download/run.rb --source-url 'https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_pspmun05.px' --output-file ${STORAGE_DIR}/PX_153011_cepsp_pspmun05.px"
+                sh "cd ${GOBIERTO_ETL_UTILS}; ruby operations/api-download/run.rb --source-url 'https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_psppre01.px' --output-file ${STORAGE_DIR}/PX_153011_cepsp_psppre01.px"
+                sh "cd ${GOBIERTO_ETL_UTILS}; ruby operations/api-download/run.rb --source-url 'https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_psppre02.px' --output-file ${STORAGE_DIR}/PX_153011_cepsp_psppre02.px"
+                sh "cd ${GOBIERTO_ETL_UTILS}; ruby operations/api-download/run.rb --source-url 'https://www.eustat.eus/bankupx/Resources/PX/Databases/DB/PX_153011_cepsp_pspmun06.px' --output-file ${STORAGE_DIR}/PX_153011_cepsp_pspmun06.px"
             }
         }
         stage('Transform > Convert px files to UTF8') {

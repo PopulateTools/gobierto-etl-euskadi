@@ -93,10 +93,10 @@ parsed_source_data.dimension(location_dimension).each do |location_name|
 
       # Skip amounts not stored as numbers, i.e. \".\" and \"-\"
       if /\A\-?\d+\z/.match?(amount)
-        single_data[:amount] = amount.to_i
+        single_data[:amount] = amount.to_f.round(2)
 
         if single_data[:population].try(:positive?)
-          single_data[:amount_per_inhabitant] = (single_data[:amount].to_f / single_data[:population]).round(2)
+          single_data[:amount_per_inhabitant] = (single_data[:amount] / single_data[:population]).round(2)
         end
         output_data << single_data
         report.register_data(single_data)

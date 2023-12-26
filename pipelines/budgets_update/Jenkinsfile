@@ -49,13 +49,13 @@ pipeline {
         }
         stage('Load > Import data') {
             steps {
-                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun04.json"
-                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun05.json"
-                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_psppre01.json"
-                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_psppre02.json"
-                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun06.json"
-                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun06_aggregated_economic.json"
-                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun06_aggregated_functional.json"
+                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun04.json ${STORAGE_DIR}/years.txt"
+                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun05.json ${STORAGE_DIR}/years.txt"
+                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_psppre01.json ${STORAGE_DIR}/years.txt"
+                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_psppre02.json ${STORAGE_DIR}/years.txt"
+                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun06.json ${STORAGE_DIR}/years.txt"
+                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun06_aggregated_economic.json ${STORAGE_DIR}/years.txt"
+                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/load-json-data/run.rb ${STORAGE_DIR}/PX_153011_cepsp_pspmun06_aggregated_functional.json ${STORAGE_DIR}/years.txt"
             }
         }
         stage('Load > Re-calculate bubbles') {

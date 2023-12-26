@@ -32,13 +32,13 @@ class BudgetLocationData
       ine_code:,
       province_id: location.province.id.to_i,
       autonomy_id: AUTONOMOUS_REGION_ID.to_i,
-      year:,
+      year: year.to_i,
       population:
     }
   end
 
   def population
-    GobiertoBudgetsData::GobiertoBudgets::Population.get(location.id, year)
+    GobiertoBudgetsData::GobiertoBudgets::Population.get(location.id, year.to_i)
   end
 
   def self.location_ids

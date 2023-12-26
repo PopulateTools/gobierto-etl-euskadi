@@ -21,7 +21,7 @@ class BudgetLocationData
       loc.name == @location_name && loc.province.autonomous_region.id == AUTONOMOUS_REGION_ID
     end
     @ine_code = location&.id&.to_i
-    @year = year
+    @year = year.to_i
   end
 
   def data
@@ -38,7 +38,7 @@ class BudgetLocationData
   end
 
   def population
-    GobiertoBudgetsData::GobiertoBudgets::Population.get(location.id, year.to_i)
+    GobiertoBudgetsData::GobiertoBudgets::Population.get(location.id, year)
   end
 
   def self.location_ids

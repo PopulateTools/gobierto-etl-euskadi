@@ -60,12 +60,12 @@ pipeline {
         }
         stage('Load > Calculate totals') {
             steps {
+                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/generate-location-ids/run.rb ${STORAGE_DIR}/location_ids.txt"
                 sh "cd ${GOBIERTO_ETL_UTILS}/operations/gobierto_budgets/update_total_budget/; total_budgets_years=\$(cat ${STORAGE_DIR}/years.txt); ./run.rb \"\$total_budgets_years\" ${STORAGE_DIR}/location_ids.txt"
             }
         }
         stage('Load > Re-calculate bubbles') {
             steps {
-                sh "cd ${EUSKADI_ETL}; ruby operations/gobierto-budgets/generate-location-ids/run.rb ${STORAGE_DIR}/location_ids.txt"
                 sh "cd ${GOBIERTO_ETL_UTILS}; ruby operations/gobierto_budgets/bubbles/run.rb ${STORAGE_DIR}/location_ids.txt"
             }
         }

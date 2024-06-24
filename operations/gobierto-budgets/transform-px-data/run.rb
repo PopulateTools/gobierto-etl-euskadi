@@ -55,6 +55,7 @@ puts "[START] transform-px-data/run.rb with file=#{input_file} output=#{output_f
 
 file_metadata = SourceFiles::FILES[file_key]
 parsed_source_data = RubyPx::Dataset.new(input_file)
+location_data = BudgetLocationData.new
 
 category_dimension = file_metadata[:category_economic_dimension][locale]
 functional_dimension = file_metadata.dig(:category_functional_dimension, locale)
@@ -82,7 +83,7 @@ parsed_source_data.dimension(location_dimension).each do |location_name|
   t0 = Time.now
   puts "#{localidades_total} - #{localidades_count}"
   puts location_name
-  location = BudgetLocationData.new(location_name, nil)
+  location = location_data.location_from_name(location_data)
   # Skip not found locations (autonomous regions, provinces or not found
   # location names)
   next unless location.present?
@@ -90,12 +91,11 @@ parsed_source_data.dimension(location_dimension).each do |location_name|
   parsed_source_data.dimension(year_dimension).each do |year_name|
     next if year_name.to_i < 2010
     puts " - Year: #{year_name}"
-    location.year = year_name
-    report.mark_year(year_name, ine_code: location.ine_code)
+    report.mark_year(year_name, ine_code: location&.id&.to_i)
 
     categories_args.each do |categories_arg|
       puts "  - Categories: #{categories_arg[:codes].values.map(&:code).join(", ")}"
-      single_data = categories_arg[:codes][:main].data.merge(location.data)
+      single_data = categories_arg[:codes][:main].data.merge(location_data.data(location, year_name))
       amount = parsed_source_data.data(categories_arg.except(:codes).merge(location_dimension => location_name, year_dimension => year_name))
 
       if categories_arg[:codes].has_key?(:functional)

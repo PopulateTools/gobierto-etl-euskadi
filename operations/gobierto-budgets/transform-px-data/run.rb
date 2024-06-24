@@ -83,7 +83,7 @@ parsed_source_data.dimension(location_dimension).each do |location_name|
   t0 = Time.now
   puts "#{localidades_total} - #{localidades_count}"
   puts location_name
-  location = location_data.location_from_name(location_data)
+  location = location_data.location_from_name(location_name)
   # Skip not found locations (autonomous regions, provinces or not found
   # location names)
   next unless location.present?

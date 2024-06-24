@@ -19,6 +19,8 @@ class BudgetLocationData
   end
 
   def data(location, year)
+    year = year.to_i
+
     return if location.blank?
 
     {

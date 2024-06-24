@@ -73,7 +73,14 @@ categories_args = if functional_codes.present?
 output_data = []
 report = BudgetDataReport.new(file_key, total_codes: economic_codes.count * (functional_codes.count.positive? ? functional_codes.count : 1))
 
+localidades_count = 0
+localidades_total = parsed_source_data.dimension(location_dimension).count
+
 parsed_source_data.dimension(location_dimension).each do |location_name|
+
+  localidades_count += 1
+  puts "#{localidades_total} - #{localidades_count}"
+  puts location_name
   location = BudgetLocationData.new(location_name, nil)
   # Skip not found locations (autonomous regions, provinces or not found
   # location names)

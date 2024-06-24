@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/PopulateTools/gobierto_budgets_data.git
-  revision: 5f15d54a7265b159b0f008bafd56d95457ab7733
+  revision: 483e83d15feb1ba65f18a7bb63bab0eb775e46ad
+  branch: allow_population_searches
   specs:
     gobierto_budgets_data (0.1.0)
       actionpack
@@ -82,7 +83,7 @@ GEM
       faraday (>= 1, < 3)
       multi_json
     erubi (1.13.0)
-    faraday (2.9.1)
+    faraday (2.9.2)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
       net-http
@@ -114,7 +115,7 @@ GEM
       ast (~> 2.4.1)
       racc
     racc (1.8.0)
-    rack (3.1.3)
+    rack (3.1.4)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)

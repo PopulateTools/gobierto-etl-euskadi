@@ -80,21 +80,17 @@ localidades_total = parsed_source_data.dimension(location_dimension).count
 parsed_source_data.dimension(location_dimension).each do |location_name|
 
   localidades_count += 1
-  t0 = Time.now
-  puts "#{localidades_total} - #{localidades_count}"
-  puts location_name
   location = location_data.location_from_name(location_name)
   # Skip not found locations (autonomous regions, provinces or not found
   # location names)
   next unless location.present?
 
   parsed_source_data.dimension(year_dimension).each do |year_name|
+    # Skip years before 2010 because in the comparator we don't have the data
     next if year_name.to_i < 2010
-    puts " - Year: #{year_name}"
     report.mark_year(year_name, ine_code: location&.id&.to_i)
 
     categories_args.each do |categories_arg|
-      puts "  - Categories: #{categories_arg[:codes].values.map(&:code).join(", ")}"
       single_data = categories_arg[:codes][:main].data.merge(location_data.data(location, year_name))
       amount = parsed_source_data.data(categories_arg.except(:codes).merge(location_dimension => location_name, year_dimension => year_name))
 
@@ -114,8 +110,6 @@ parsed_source_data.dimension(location_dimension).each do |location_name|
       end
     end
   end
-  t1 = Time.now
-  puts "Took: #{t1 - t0}"
 end
 
 report.print

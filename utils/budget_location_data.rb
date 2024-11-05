@@ -43,7 +43,7 @@ class BudgetLocationData
   def population(location, year)
     year.downto(year - 2).map do |y|
       found = raw_data.find do |item|
-        id = [location.ine_code, y, GobiertoBudgetsData::GobiertoBudgets::POPULATION_TYPE].join("/")
+        id = [location.id, y, GobiertoBudgetsData::GobiertoBudgets::POPULATION_TYPE].join("/")
         item["_id"] == id
       end
 

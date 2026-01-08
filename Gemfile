@@ -10,6 +10,7 @@ gem "gobierto_budgets_data", git: "https://github.com/PopulateTools/gobierto_bud
 gem "nokogiri"
 gem "aws-sdk-s3"
 gem "ruby_px", git: "https://github.com/PopulateTools/ruby_px.git"
+gem "csv"
 
 group :development do
   gem "byebug"

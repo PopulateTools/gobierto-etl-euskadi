@@ -11,7 +11,6 @@ gem "nokogiri"
 gem "aws-sdk-s3"
 gem "ruby_px", git: "https://github.com/PopulateTools/ruby_px.git"
 gem "csv"
-gem "ostruct"
 
 group :development do
   gem "byebug"
